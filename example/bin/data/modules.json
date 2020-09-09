@@ -1,0 +1,13 @@
+[
+	{
+		"type":"Webcam"
+	},
+	{
+		"type":"Presenter",
+		"inputs":["Greenscreen"]
+	},
+	{
+		"type":"Greenscreen",
+		"inputs":["Webcam","Presenter"]
+	}
+]

@@ -1,0 +1,30 @@
+{
+    "Greenscreen": {
+        "greenscreenSettings": {
+            "Hintergrundfarbe_aktualisieren": "1",
+            "alle_Masken": "0",
+            "baseMaskClip_b_w_": "0.2, 0.6",
+            "baseMaskStrength": "0.37",
+            "bgColor": "0.282745, 0.209255, 0.185451, 1",
+            "bgColorPos": "1177.33, 513.333",
+            "bgColorROIsize": "20",
+            "blurValue": "1000",
+            "chromaMaskStrength": "0.5",
+            "clippingMask_BR_": "0, 0",
+            "clippingMask_TL_": "0, 0",
+            "detailMaskClip_b_w_": "0.565, 0.82",
+            "dilateStep": "3",
+            "endMaskClip_b_w_": "0.1, 0.6",
+            "erodeStep": "1",
+            "greenspillStrength": "0.39",
+            "multiplyFilterHueOffset": "0.28",
+            "photoOffset": "0, 0",
+            "photoZoom": "1.1"
+        }
+    },
+    "Webcam": {
+        "height": 480,
+        "streamingMethod": "texture",
+        "width": 640
+    }
+}
