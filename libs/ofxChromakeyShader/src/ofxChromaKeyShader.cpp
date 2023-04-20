@@ -62,8 +62,8 @@ void ofxChromaKeyShader::setup(int width_, int height_, ofJson settings)
 	paramGp.add(baseMaskClip.set("baseMaskClip(b,w)", ofVec2f(.2, .6), ofVec2f(0.0), ofVec2f(1.0)));
 	paramGp.add(detailMaskClip.set("detailMaskClip(b,w)", ofVec2f(.565, .82), ofVec2f(0.0), ofVec2f(1.0)));
 	paramGp.add(endMaskClip.set("endMaskClip(b,w)", ofVec2f(.1, .6), ofVec2f(0.0), ofVec2f(1.0)));
-	paramGp.add(clippingMaskTL.set("clippingMask(TL)", ofVec2f(0.f), ofVec2f(0.f), ofVec2f(width, height)));
-	paramGp.add(clippingMaskBR.set("clippingMask(BR)", ofVec2f(0.f), ofVec2f(0.f), ofVec2f(width, height)));
+	paramGp.add(clippingMaskTL.set("clippingMask(TL)", ofVec2f(0.f), ofVec2f(0.f), ofVec2f(1.0)));
+	paramGp.add(clippingMaskBR.set("clippingMask(BR)", ofVec2f(0.f), ofVec2f(0.f), ofVec2f(1.0)));
 	paramGp.add(photoOffset.set("photoOffset", ofVec2f(0.f), ofVec2f(-width, -height), ofVec2f(width, height)));
 	paramGp.add(photoZoom.set("photoZoom", 1.f, 1.f, 4.f));
 
@@ -416,10 +416,10 @@ void ofxChromaKeyShader::updateChromakeyMask(const ofTexture& input_tex, const o
     proceedChromaMask(input_tex);
     
     // == 5. Combine with BG =================================
-    float clipX = clippingMaskTL.get().x;
-    float clipY = clippingMaskTL.get().y;
-    float clipW = width - clippingMaskTL.get().x - clippingMaskBR.get().x;
-    float clipH = height - clippingMaskTL.get().y - clippingMaskBR.get().y;
+    float clipX = clippingMaskTL.get().x*width;
+    float clipY = clippingMaskTL.get().y*height;
+    float clipW = width*( 1.0 - clippingMaskTL.get().x - clippingMaskBR.get().x);
+    float clipH = height*(1.0 - clippingMaskTL.get().y - clippingMaskBR.get().y);
     fbo_final.begin();
         ofClear(0.f, 0.f);
         ofSetColor(255,255,255);
